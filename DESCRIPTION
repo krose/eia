@@ -1,11 +1,11 @@
 Package: eia
 Type: Package
 Title: An R wrapper for the EIA API.
-Version: 1.0
+Version: 0.0.1
 Date: 2015-02-10
 Author: Kenneth Rose
 Maintainer: Kenneth Rose <kennethrose82@gmail.com>
-Description: This package use the EIA API to download series and categories.
+Description: This package use the EIA API to download data series and categories.
 Imports:
     httr,
     jsonlite,

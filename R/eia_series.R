@@ -13,7 +13,7 @@
 #' 
 #' @export
 #' @import magrittr
-eia_series <- function(api_key = "34117E2A8A50B13CAC6A3C5C8BDC89CF", series_id, start = NULL, end = NULL, num = NULL, tidy_data = "no", only_data = FALSE){
+eia_series <- function(api_key, series_id, start = NULL, end = NULL, num = NULL, tidy_data = "no", only_data = FALSE){
   # max 100 series
   # test if num is not null and either start or end is nut null. Not allowed
   # api_key test for character.
@@ -68,8 +68,4 @@ eia_series <- function(api_key = "34117E2A8A50B13CAC6A3C5C8BDC89CF", series_id, 
   
   return(series_data)
 }
-
-# test <- eia_series(series_id = "PET.WCSSTUS1.W", num = 3)
-# series_data <- eia_series(series_id = c("PET.WCSSTUS1.W", "PET.WGFSTUS1.W", "PET.MCRSTUS1.A", "PET.MAPSTUS1.M"), num = 3, tidy_data = "tidy_long", only_data = FALSE)
-# series_data <- eia_series(series_id = c("PET.WCSSTUS1.W", "PET.WGFSTUS1.W", "PET.MCRSTUS1.A", "PET.MAPSTUS1.M"), num = 3, tidy_data = "tidy_long", only_data = TRUE)
 
