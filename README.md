@@ -22,7 +22,7 @@ library(eia)
 Category
 --------
 
-The first function is the category function. If you don't supply any category\_id you will simply data on the top level category returned as a list:
+The first function is the category function. If you don't supply any category\_id you will simply get data on the top level category returned as a list:
 
 ``` {.r}
 eia_cat(api_key = api_key)
@@ -65,7 +65,7 @@ eia_cat(api_key = api_key)
 
 These categories are deep, so you might find yourself searching through these until you get to the data series that you are interested.
 
-Here's the first level natural gas category:
+Here's the first level of the natural gas category:
 
 ``` {.r}
 eia_cat(api_key = api_key, category_id = "714804")
@@ -105,7 +105,7 @@ eia_cat(api_key = api_key, category_id = "714804")
     ## $category$childseries
     ## list()
 
-When you get to the final level the result is often a long list of "childseries" which id's the data series you can request.
+When you get to the final level the result is often a long list of "childseries" which ids the data series you can request.
 
 ``` {.r}
 eia_cat(api_key = api_key, category_id = 475136)
@@ -310,7 +310,7 @@ eia_series(api_key = api_key,
     ## 6 2008-01-01    13
     ## 7 2007-01-01    12
 
-That's a lot of information and I would rather have it in a more tidy format. When you select "tidy\_long" two additional columns are added descriping the series time frame and the series\_id.
+That's a lot of information and I would rather have it in a more tidy format. When you select "tidy\_long" two additional columns are added, describing the series time frame and the series\_id.
 
 ``` {.r}
 eia_series(api_key = api_key, 
