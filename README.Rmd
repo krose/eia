@@ -1,0 +1,90 @@
+---
+title: "EIA API wrapper for R"
+output: 
+  md_document:
+    variant: markdown_github
+---
+
+# Introduction
+
+An R client for the EIA API. The API is currently in beta and can be subject to
+change.
+
+Before you do anything head over to the [EIA registration page](http://www.eia.gov/beta/api/register.cfm)
+and get an API key.
+
+# Installation
+
+```
+devtools::install_github("krose/eia")
+
+```
+
+# Examples
+
+```{r, echo=FALSE}
+source("api_key.R")
+```
+
+Let's first load the library:
+
+```{r loadeia, echo=TRUE}
+
+library(eia)
+
+```
+
+## Category
+
+The first function is the category function. If you don't supply any category_id you will simply
+data on the top level category returned as a list:
+
+```{r cat1, echo=TRUE}
+
+eia_cat(api_key = api_key)
+
+```
+
+These categories are deep, so you might find yourself searching through these until you get
+to the data series that you are interested.
+
+Here's the first level natural gas category:
+
+```{r cat2, echo=TRUE}
+
+eia_cat(api_key = api_key, category_id = "714804")
+
+```
+
+When you get to the final level the result is often a long list of "childseries" which id's the data
+series you can request.
+
+```{r cat3, echo=TRUE}
+eia_cat(api_key = api_key, category_id = 475136)
+```
+
+## Series
+
+Let's take a look at the annual series from North Dakota and Montana where a part of the Bakken formation is.
+
+```{r series1, echo=TRUE}
+
+eia_series(api_key = api_key,
+           series_id = c("NG.RES_EPG0_R5302_SND_BCF.A", "NG.RES_EPG0_R5302_SMT_BCF.A"))
+
+```
+
+That's a lot of information and I would rather have it in a more tidy format. When you select "tidy_long"
+two additional columns are added descriping the series time frame and the series_id.
+
+
+```{r series2, echo=TRUE}
+
+eia_series(api_key = api_key, 
+           series_id = c("NG.RES_EPG0_R5302_SND_BCF.A", "NG.RES_EPG0_R5302_SMT_BCF.A"),
+           tidy_data = "tidy_long", 
+           only_data = TRUE)
+
+```
+
+
