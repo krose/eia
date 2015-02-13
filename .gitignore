@@ -1,0 +1,5 @@
+.Rbuildignore
+.Rhistory
+eia.Rproj
+api_key.R
+.Rproj.user/

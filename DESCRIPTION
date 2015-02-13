@@ -1,0 +1,13 @@
+Package: eia
+Type: Package
+Title: An R wrapper for the EIA API.
+Version: 1.0
+Date: 2015-02-10
+Author: Kenneth Rose
+Maintainer: Kenneth Rose <kennethrose82@gmail.com>
+Description: This package use the EIA API to download series and categories.
+Imports:
+    httr,
+    jsonlite,
+    magrittr
+License: MIT
